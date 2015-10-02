@@ -12,8 +12,8 @@ import android.view.View;
 
 class DrawCircle extends DrawCanvas {
 
-    int rad=0;
-    int color=0;
+    private int rad;
+    private int color;
     public DrawCircle(Context context,int color,int rad) {
         super(context);
         this.color =color;
@@ -21,7 +21,7 @@ class DrawCircle extends DrawCanvas {
 
     }
     @Override
-    public void onDraw(Canvas canvas) {
+    protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         paint.setColor(color);
        if(rad > getHeight() || rad > getWidth())
@@ -31,14 +31,16 @@ class DrawCircle extends DrawCanvas {
     }
 }
 public class Circle extends AppCompatActivity {
-    DrawCircle circle;
+   private DrawCircle circle;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent getpar = getIntent();
         String shape_par = getpar.getStringExtra(Input.SHAPE_PARAMS);
         String params [] = shape_par.split("/");
-        int rad=0;
+        int rad;
         try {
              rad = Integer.parseInt(params[1].trim());
         }catch (NumberFormatException ex) {rad=0;}

@@ -18,7 +18,7 @@ public class Input extends AppCompatActivity {
 
         Spinner dropdown = (Spinner)findViewById(R.id.colorspinner);
         String[] items = new String[]{"RED", "GREEN", "BLUE"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
 
 
@@ -41,12 +41,12 @@ public class Input extends AppCompatActivity {
             EditText length = (EditText) findViewById(R.id.lengthinput);
             TextView lengthv = (TextView) findViewById(R.id.lengthview);
 
-            radius.setVisibility(View.INVISIBLE);
-            radiusv.setVisibility(View.INVISIBLE);
-            stroke.setVisibility(View.INVISIBLE);
-            strokev.setVisibility(View.INVISIBLE);
-            length.setVisibility(View.INVISIBLE);
-            lengthv.setVisibility(View.INVISIBLE);
+            radius.setVisibility(View.GONE);
+            radiusv.setVisibility(View.GONE);
+            stroke.setVisibility(View.GONE);
+            strokev.setVisibility(View.GONE);
+            length.setVisibility(View.GONE);
+            lengthv.setVisibility(View.GONE);
         }
         else if (shape.trim().equals("Circle")) {
             EditText stroke = (EditText) findViewById(R.id.strokeinput);
@@ -62,16 +62,16 @@ public class Input extends AppCompatActivity {
 
 
 
-            width.setVisibility(View.INVISIBLE);
-            widthv.setVisibility(View.INVISIBLE);
-            stroke.setVisibility(View.INVISIBLE);
-            strokev.setVisibility(View.INVISIBLE);
+            width.setVisibility(View.GONE);
+            widthv.setVisibility(View.GONE);
+            stroke.setVisibility(View.GONE);
+            strokev.setVisibility(View.GONE);
 
-            height.setVisibility(View.INVISIBLE);
-            heightv.setVisibility(View.INVISIBLE);
+            height.setVisibility(View.GONE);
+            heightv.setVisibility(View.GONE);
 
-            length.setVisibility(View.INVISIBLE);
-            lengthv.setVisibility(View.INVISIBLE);
+            length.setVisibility(View.GONE);
+            lengthv.setVisibility(View.GONE);
         }
         else{
             EditText width = (EditText) findViewById(R.id.widthinput);
@@ -83,20 +83,20 @@ public class Input extends AppCompatActivity {
             TextView radiusv = (TextView) findViewById(R.id.radiusview);
 
 
-            width.setVisibility(View.INVISIBLE);
-            widthv.setVisibility(View.INVISIBLE);
+            width.setVisibility(View.GONE);
+            widthv.setVisibility(View.GONE);
 
-            height.setVisibility(View.INVISIBLE);
-            heightv.setVisibility(View.INVISIBLE);
-            radius.setVisibility(View.INVISIBLE);
-            radiusv.setVisibility(View.INVISIBLE);
+            height.setVisibility(View.GONE);
+            heightv.setVisibility(View.GONE);
+            radius.setVisibility(View.GONE);
+            radiusv.setVisibility(View.GONE);
         }
     }
-    public void move(View view){
+    public void draw(View view){
 
 
 
-        Intent drawshape=null;
+        Intent drawshape;
         Intent getshape = getIntent();
         String shape = getshape.getStringExtra(Select.SHAPE);
 
@@ -107,6 +107,10 @@ public class Input extends AppCompatActivity {
             String color = dropdown.getSelectedItem().toString();
             String w = width.getText().toString();
             String h = height.getText().toString();
+            if(w.isEmpty())
+                w="0";
+            if(h.isEmpty())
+                h="0";
             drawshape = new Intent(this, Rectangle.class);
             drawshape.putExtra(SHAPE_PARAMS,color+"/"+w+"/"+h);
             width.setText("");
@@ -117,6 +121,9 @@ public class Input extends AppCompatActivity {
             EditText radius = (EditText) findViewById(R.id.radiusinput);
             String color = dropdown.getSelectedItem().toString();
             String rad = radius.getText().toString();
+            if(rad.isEmpty())
+                rad="0";
+
             drawshape = new Intent(this, Circle.class);
             drawshape.putExtra(SHAPE_PARAMS, color+"/"+rad);
             radius.setText("");
@@ -127,6 +134,10 @@ public class Input extends AppCompatActivity {
             Spinner dropdown = (Spinner)findViewById(R.id.colorspinner);
             String l = length.getText().toString();
             String st = stroke.getText().toString();
+            if(st.isEmpty())
+                st="0";
+            if(l.isEmpty())
+                l="0";
             String color = dropdown.getSelectedItem().toString();
             drawshape = new Intent(this, Line.class);
             drawshape.putExtra(SHAPE_PARAMS,color+"/"+st+"/"+l);

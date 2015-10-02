@@ -17,6 +17,7 @@ public class Select extends AppCompatActivity {
 
 
     public void getshape(View view){
+
         int id = view.getId();
         Intent shapeshift;
         if(id==R.id.line) {

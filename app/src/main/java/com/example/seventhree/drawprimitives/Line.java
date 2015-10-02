@@ -11,9 +11,9 @@ import android.os.Bundle;
 import android.view.View;
 
 class DrawLine extends DrawCanvas {
-    int stroke = 0;
-    int length = 0;
-    int color=0;
+    private int stroke;
+    private int length;
+    private int color;
     public DrawLine(Context context, int color, int st, int len) {
         super(context);
        this.color=color;
@@ -22,7 +22,7 @@ class DrawLine extends DrawCanvas {
     }
 
     @Override
-    public void onDraw(Canvas canvas) {
+    protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         paint.setColor(color);
         if(stroke > getWidth())
@@ -37,7 +37,7 @@ class DrawLine extends DrawCanvas {
     }
 }
     public class Line extends AppCompatActivity {
-        DrawLine line;
+        private DrawLine line;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +45,8 @@ class DrawLine extends DrawCanvas {
             Intent getpar = getIntent();
             String shape_par = getpar.getStringExtra(Input.SHAPE_PARAMS);
             String params[] = shape_par.split("/");
-            int stroke = 0;
-            int len = 0;
+            int stroke;
+            int len;
             try {
                 stroke = Integer.parseInt(params[1].trim());
                 len = Integer.parseInt(params[2].trim());

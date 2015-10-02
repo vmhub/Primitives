@@ -15,13 +15,12 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="64dp"
-        android:onClick="move" />
+        android:onClick="draw" />
 
     <Spinner
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/colorspinner"
-        android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/drawshape"
         android:layout_alignEnd="@+id/drawshape"
         android:layout_alignLeft="@+id/drawshape"
@@ -71,7 +70,8 @@
         android:background="@null"
         android:layout_below="@+id/radiusinput"
         android:layout_alignLeft="@+id/radiusinput"
-        android:layout_alignStart="@+id/radiusinput" />
+        android:layout_alignStart="@+id/radiusinput"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -90,7 +90,8 @@
         android:background="@null"
         android:layout_below="@+id/widthinput"
         android:layout_alignLeft="@+id/widthinput"
-        android:layout_alignStart="@+id/widthinput" />
+        android:layout_alignStart="@+id/widthinput"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -109,7 +110,8 @@
         android:background="@null"
         android:layout_below="@+id/heightinput"
         android:layout_alignLeft="@+id/heightinput"
-        android:layout_alignStart="@+id/heightinput" />
+        android:layout_alignStart="@+id/heightinput"
+        android:layout_centerHorizontal="true"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -128,7 +130,8 @@
         android:background="@null"
         android:layout_below="@+id/lengthinput"
         android:layout_alignLeft="@+id/lengthinput"
-        android:layout_alignStart="@+id/lengthinput" />
+        android:layout_alignStart="@+id/lengthinput"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
 <!-- From: file:/C:/Users/SevenThree/AndroidStudioProjects/DrawPrimitivesz/app/src/main/res/layout/activity_input.xml -->

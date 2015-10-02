@@ -11,9 +11,10 @@ import android.os.Bundle;
 import android.view.View;
 
 class DrawRect extends DrawCanvas {
-    int width =0;
-    int height=0;
-    int color=0;
+    private int width ;
+    private int height;
+    private int color;
+
     public DrawRect(Context context,int color,int w,int h) {
         super(context);
         this.color=color;
@@ -21,7 +22,7 @@ class DrawRect extends DrawCanvas {
         this.height=h;
     }
     @Override
-    public void onDraw(Canvas canvas) {
+    protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         paint.setColor(color);
         if(width > getHeight() || height > getHeight())
@@ -33,15 +34,15 @@ class DrawRect extends DrawCanvas {
     }
 }
 public class Rectangle extends AppCompatActivity {
-    DrawRect rekt;
+   private DrawRect rekt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent getpar = getIntent();
         String shape_par = getpar.getStringExtra(Input.SHAPE_PARAMS);
         String params [] = shape_par.split("/");
-        int w=0;
-        int h=0;
+        int w;
+        int h;
 
         try{
             w = Integer.parseInt(params[1].trim());
