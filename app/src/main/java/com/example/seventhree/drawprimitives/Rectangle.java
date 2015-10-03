@@ -34,7 +34,6 @@ class DrawRect extends DrawCanvas {
     }
 }
 public class Rectangle extends AppCompatActivity {
-   private DrawRect rekt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,22 +48,8 @@ public class Rectangle extends AppCompatActivity {
             h = Integer.parseInt(params[2].trim());
     }catch (NumberFormatException ex) {w=0;h=0;}
 
+        DrawRect rekt = new DrawRect(this,Color.parseColor(params[0].trim()),w,h);
 
-
-        switch(params[0].trim()){
-            case "BLUE":
-                rekt = new DrawRect(this,Color.BLUE,w,h);
-                break;
-            case "RED":
-
-                rekt = new DrawRect(this, Color.RED,w,h);
-                break;
-            case "GREEN":
-
-                rekt = new DrawRect(this,Color.GREEN,w,h);
-                break;
-
-        }
 
         setContentView(rekt);
     }

@@ -37,8 +37,6 @@ class DrawLine extends DrawCanvas {
     }
 }
     public class Line extends AppCompatActivity {
-        private DrawLine line;
-
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -54,20 +52,8 @@ class DrawLine extends DrawCanvas {
                 len = 0;
                 stroke = 0;
             }
-            switch (params[0].trim()) {
-                case "BLUE":
-                    line = new DrawLine(this, Color.BLUE, stroke, len);
-                    break;
-                case "RED":
+                   DrawLine line = new DrawLine(this, Color.parseColor(params[0].trim()), stroke, len);
 
-                    line = new DrawLine(this, Color.RED, stroke, len);
-                    break;
-                case "GREEN":
-
-                    line = new DrawLine(this, Color.GREEN, stroke, len);
-                    break;
-
-            }
 
 
             setContentView(line);

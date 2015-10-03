@@ -17,8 +17,9 @@ public class Input extends AppCompatActivity {
         setContentView(R.layout.activity_input);
 
         Spinner dropdown = (Spinner)findViewById(R.id.colorspinner);
-        String[] items = new String[]{"RED", "GREEN", "BLUE"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+         R.array.colorNames, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dropdown.setAdapter(adapter);
 
 

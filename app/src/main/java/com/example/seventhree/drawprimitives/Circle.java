@@ -24,16 +24,14 @@ class DrawCircle extends DrawCanvas {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         paint.setColor(color);
-       if(rad > getHeight() || rad > getWidth())
+
+       if(rad > getHeight()/2 || rad > getWidth()/2)
            canvas.drawCircle(getWidth() / 2, getHeight() / 2, 0, paint);
            else
        canvas.drawCircle(getWidth() / 2, getHeight() / 2, rad, paint);
     }
 }
 public class Circle extends AppCompatActivity {
-   private DrawCircle circle;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,20 +43,12 @@ public class Circle extends AppCompatActivity {
              rad = Integer.parseInt(params[1].trim());
         }catch (NumberFormatException ex) {rad=0;}
 
-        switch(params[0].trim()){
-            case "BLUE":
-                circle = new DrawCircle(this,Color.BLUE,rad);
-                break;
-            case "RED":
 
-                circle = new DrawCircle(this, Color.RED,rad);
-                break;
-            case "GREEN":
 
-                circle = new DrawCircle(this,Color.GREEN,rad);
-                break;
+         DrawCircle circle = new DrawCircle(this,Color.parseColor(params[0].trim()),rad);
 
-        }
+
+
 
         setContentView(circle);
     }

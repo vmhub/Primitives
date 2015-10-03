@@ -14,8 +14,6 @@ import android.view.View;
 
 class DrawPicture extends DrawCanvas {
      Bitmap pic = BitmapFactory.decodeResource(getResources(),R.drawable.andron);
-     private int x ;
-     private int y ;
     public DrawPicture(Context context) {
 
         super(context);
@@ -23,8 +21,8 @@ class DrawPicture extends DrawCanvas {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        x=(getWidth()/2)-(pic.getWidth()/2);
-        y=(getHeight()/2)-(pic.getHeight()/2);
+        int x =(getWidth()/2)-(pic.getWidth()/2);
+        int y=(getHeight()/2)-(pic.getHeight()/2);
         canvas.drawBitmap(pic,x,y,null);
     }
 }
