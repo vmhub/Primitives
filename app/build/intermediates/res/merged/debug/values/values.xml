@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/C:/Users/SevenThree/AndroidStudioProjects/DrawPrimitivesz/app/src/main/res/values/colorz.xml -->
+    <!-- From: file:/C:/Users/SevenThree/AndroidStudioProjects/DrawPrimitivesz/app/src/main/res/values/colors.xml -->
     <eat-comment/>
     <string-array name="colorNames">
         <item>red</item>

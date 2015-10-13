@@ -96,16 +96,16 @@ public class Input extends AppCompatActivity {
     public void draw(View view){
 
 
-
+        Spinner dropdown = (Spinner)findViewById(R.id.colorspinner);
         Intent drawshape;
         Intent getshape = getIntent();
         String shape = getshape.getStringExtra(Select.SHAPE);
-
+        String color = dropdown.getSelectedItem().toString();
         if(shape.trim().equals("Rekt")) {
-            Spinner dropdown = (Spinner)findViewById(R.id.colorspinner);
+          //  Spinner dropdown = (Spinner)findViewById(R.id.colorspinner);
             EditText height = (EditText) findViewById(R.id.heightinput);
             EditText width = (EditText) findViewById(R.id.widthinput);
-            String color = dropdown.getSelectedItem().toString();
+          //  String color = dropdown.getSelectedItem().toString();
             String w = width.getText().toString();
             String h = height.getText().toString();
             if(w.isEmpty())
@@ -118,9 +118,9 @@ public class Input extends AppCompatActivity {
             height.setText("");
         }
         else if (shape.trim().equals("Circle")) {
-            Spinner dropdown = (Spinner)findViewById(R.id.colorspinner);
+           // Spinner dropdown = (Spinner)findViewById(R.id.colorspinner);
             EditText radius = (EditText) findViewById(R.id.radiusinput);
-            String color = dropdown.getSelectedItem().toString();
+         //   String color = dropdown.getSelectedItem().toString();
             String rad = radius.getText().toString();
             if(rad.isEmpty())
                 rad="0";
@@ -132,14 +132,14 @@ public class Input extends AppCompatActivity {
         else {
             EditText stroke = (EditText) findViewById(R.id.strokeinput);
             EditText length = (EditText) findViewById(R.id.lengthinput);
-            Spinner dropdown = (Spinner)findViewById(R.id.colorspinner);
+         //   Spinner dropdown = (Spinner)findViewById(R.id.colorspinner);
             String l = length.getText().toString();
             String st = stroke.getText().toString();
             if(st.isEmpty())
                 st="0";
             if(l.isEmpty())
                 l="0";
-            String color = dropdown.getSelectedItem().toString();
+      //      String color = dropdown.getSelectedItem().toString();
             drawshape = new Intent(this, Line.class);
             drawshape.putExtra(SHAPE_PARAMS,color+"/"+st+"/"+l);
             length.setText("");
